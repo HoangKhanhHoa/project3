@@ -1,0 +1,66 @@
+extends pug/_layout
+
+block main
+  header
+    h1
+      a.logo(href="#home") Email Card
+    input#menu-btn.menu-btn(type="checkbox")
+    label.menu-icon(for="menu-btn")
+      span.navicon
+    ul.menu
+      li
+        a(href="#home") Home
+      li
+        a(href="#blogs") Blogs
+      li
+        a(href="#about") About us
+      li
+        a(href="#contact") Contact
+  nav
+    section.home#home
+      div.left
+        -
+          var listImgLeft =[
+            {img:'facebook.png', desc: 'Facebook', linkimg:'facebook.com'},
+            {img:'instagram.png', desc: 'Instagram', linkimg:'instagram.com'},
+            {img:'twitter.png', desc: 'Twitter', linkimg:'twitter.com'},
+            {img:'youtube.png', decs: 'Youtube', linkimg:'youtube.com'}
+          ]
+        each val in listImgLeft
+          div.list_icon
+            abbr(title=val.desc)
+              a(href="http://" + val.linkimg)
+                img(src="img/" + val.img)
+      div.right 
+        -
+          var listBlog =[
+            {img:'blog-hot1.jpg', title:'How to design awesome card'},
+            {img:'blog-hot2.jpg', title:'Some notes when designing card'},
+            {img:'blog-hot3.jpg', title:'Some best cards voted by users'},
+            {img:'blog-hot4.jpg', title:'Tip to send card'},
+            {img:'blog-hot5.jpg', title:'How to send card for receiver'},
+            {img:'blog-hot6.jpg', title:'How to register for a premium member'},
+          ]
+        each val in listBlog
+          div.blog
+            img(src="img/" + val.img)
+            a(href="#")
+              p= val.title
+    aside.signin
+      div.reg_in
+        div.reg
+          p
+            |Register/Login
+          img(src="img/user.png")
+        div.form_input
+          form
+            input.class_input(type="text", name="name", placeholder="Name")
+            input.class_input(type="email", name="email", placeholder="Email")
+            input.class_input(type="password", name="password", placeholder="Password")
+            button(type="submit") Send &nbsp
+              img(src="img/plane.png")
+  footer
+    div.foot 
+    
+
+
